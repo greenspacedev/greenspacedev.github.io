@@ -1,30 +1,27 @@
-// Keep this generic. Add/remove as you like.
+// Quick links
 window.LINK_GROUPS = [
+  
   {
-    title: "Reference",
+    title: "General",
     links: [
-      { label: "Wikipedia", url: "https://en.wikipedia.org/", desc: "General reference" },
-      { label: "WolframAlpha", url: "https://www.wolframalpha.com/", desc: "Math + units" },
-      { label: "NIST", url: "https://www.nist.gov/", desc: "Standards and references" },
-      { label: "MatWeb", url: "https://www.matweb.com/", desc: "Material properties" },
-      { label: "Engineering Toolbox", url: "https://www.engineeringtoolbox.com/", desc: "Quick tables" }
-    ]
-  },
-  {
-    title: "Dev",
-    links: [
-      { label: "GitHub", url: "https://github.com/", desc: "Repos + issues" },
-      { label: "MDN Web Docs", url: "https://developer.mozilla.org/", desc: "Web reference" },
-      { label: "Stack Overflow", url: "https://stackoverflow.com/", desc: "Q&A" }
-    ]
-  },
-  {
-    title: "Tools",
-    links: [
-      { label: "Google Drive", url: "https://drive.google.com/", desc: "Files" },
+      { label: "Learning Suite", url: "https://learningsuite.byu.edu/.6jrn/student/top", desc: "BYU Classes" },
+      { label: "Canvas", url: "https://byu.instructure.com/", desc: "BYU Classes" },
       { label: "Google Calendar", url: "https://calendar.google.com/", desc: "Schedule" },
-      { label: "Google Keep", url: "https://keep.google.com/", desc: "Quick notes" }
+      { label: "Google Drive", url: "https://drive.google.com/", desc: "Files" },
+      { label: "Google Docs", url: "https://docs.google.com/", desc: "Notes" },
+      { label: "Outlook", url: "https://outlook.office365.com/mail/", desc: "Mail" },
+      { label: "ChatGPT", url: "https://chatgpt.com/", desc: "Information" }
     ]
-  }
+  },
+  
+  {
+    title: "Course Resources",
+    links: [
+      { label: "CAEDM", url: "https://caedm.et.byu.edu/cms/", desc: "Remote software" },
+      { label: "Materials Text", url: "https://learn.wileyplus.com/courses/195603", desc: "ME EN 250" },
+      { label: "Differential Text", url: "https://digitalcommons.trinity.edu/cgi/viewcontent.cgi?article=1007&context=mono", desc: "MATH 334" },
+      { label: "SAGE", url: "https://homepages.bluffton.edu/~nesterd/apps/slopefields.html", desc: "Differential equation graphing" },
+    ]
+  },
+  
 ];
-
