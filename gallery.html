@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">
+        <span class="dot"></span>
+        <span class="title">Public-Domain Gallery</span>
+        <span class="sub">curated</span>
+      </div>
+      <div class="navlinks">
+        <a class="pill" href="index.html">Launchpad</a>
+        <a class="pill" href="conversions.html">Conversions</a>
+        <a class="pill" href="gallery.html">Gallery</a>
+        <a class="pill" href="ambient.html">Ambient</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card pad">
+      <div class="galleryBar">
+        <div class="inputRow">
+          <select id="artistFilter"></select>
+          <select id="centuryFilter"></select>
+          <button class="btn" id="randomBtn" type="button">Random</button>
+        </div>
+        <div class="meta">Click any tile for details.</div>
+      </div>
+
+      <div id="grid" class="galleryGrid"></div>
+    </section>
+  </main>
+
+  <div id="modalBack" class="modalBack" role="dialog" aria-modal="true" aria-label="Artwork details">
+    <div class="modal">
+      <div class="modalHeader">
+        <div class="title" id="modalTop"></div>
+        <button class="btn" id="closeModal" type="button">Close</button>
+      </div>
+      <div class="modalBody">
+        <img id="modalImg" alt="" loading="lazy">
+        <div class="modalInfo">
+          <h3 id="modalTitle"></h3>
+          <p id="modalMeta"></p>
+          <p id="modalDesc"></p>
+          <div class="inputRow">
+            <a class="btn primary" id="sourceLink" href="#" target="_blank" rel="noopener noreferrer">Source</a>
+            <button class="btn" id="copyTitle" type="button">Copy caption</button>
+          </div>
+          <div style="height:10px"></div>
+          <p class="meta">All items included here are commonly treated as public domain due to age (pre-1900), but always defer to the linked source details if you need certainty for reuse.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/gallery.js"></script>
+</body>
+</html>

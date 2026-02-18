@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Conversions</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">
+        <span class="dot"></span>
+        <span class="title">Conversions</span>
+        <span class="sub">metric ⇄ imperial</span>
+      </div>
+      <div class="navlinks">
+        <a class="pill" href="index.html">Launchpad</a>
+        <a class="pill" href="conversions.html">Conversions</a>
+        <a class="pill" href="gallery.html">Gallery</a>
+        <a class="pill" href="ambient.html">Ambient</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card pad">
+      <h2>Converter</h2>
+      <p class="meta">
+        Categories cover common engineering needs: length, area, volume, stress/pressure, force, moment/torque, density, energy, power, temperature.
+      </p>
+
+      <div class="inputRow" style="margin-top:12px;">
+        <select id="category"></select>
+        <input id="value" type="number" inputmode="decimal" placeholder="Value" style="width: 180px;" />
+        <select id="fromUnit" style="min-width: 220px;"></select>
+        <select id="precision" title="Decimal places">
+          <option value="2">2 dp</option>
+          <option value="3">3 dp</option>
+          <option value="4" selected>4 dp</option>
+          <option value="6">6 dp</option>
+        </select>
+        <button class="btn" id="swapBtn" type="button">Swap</button>
+        <button class="btn ghost" id="resetBtn" type="button">Reset</button>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <table class="table" aria-label="Conversion results">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Unit</th>
+            <th>Value</th>
+            <th style="width: 120px;">Copy</th>
+          </tr>
+        </thead>
+        <tbody id="results"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/conversions.js"></script>
+</body>
+</html>

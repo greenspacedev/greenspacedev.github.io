@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Launchpad</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">
+        <span class="dot"></span>
+        <span class="title">Minimal Launchpad</span>
+        <span class="sub">Everforest (dark)</span>
+      </div>
+      <div class="navlinks">
+        <a class="pill" href="index.html">Launchpad</a>
+        <a class="pill" href="conversions.html">Conversions</a>
+        <a class="pill" href="gallery.html">Gallery</a>
+        <a class="pill" href="ambient.html">Ambient</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="grid cols-2">
+      <section class="card pad">
+        <h2>Search</h2>
+        <p class="meta">Google search with optional shortcuts: <span class="kbd">wiki</span>, <span class="kbd">yt</span>, <span class="kbd">mdn</span>, <span class="kbd">maps</span></p>
+
+        <form id="searchForm" class="inputRow" autocomplete="off">
+          <input id="q" type="text" placeholder="Search…" style="flex:1; min-width: 240px;" />
+          <button class="btn primary" type="submit">Search</button>
+          <a class="btn" href="ambient.html" title="Open ambient focus page">Focus</a>
+        </form>
+
+        <div style="height:14px"></div>
+
+        <h2>Quick</h2>
+        <div class="inputRow">
+          <a class="btn" href="conversions.html">Conversions</a>
+          <a class="btn" href="gallery.html">Gallery</a>
+          <button class="btn ghost" id="randomArtBtn" type="button">Random artwork</button>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <h2>Notes</h2>
+        <p class="meta">This site is designed to stay anonymous by default. Keep everything generic, store personal notes locally (not in the repo).</p>
+      </section>
+
+      <section class="card pad">
+        <h2>Links</h2>
+        <p class="meta">Edit in <code>assets/js/links.js</code></p>
+        <div id="linksRoot" class="grid" style="gap:14px;"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/links.js"></script>
+  <script>
+    // Google + shortcut parsing
+    const shortcuts = {
+      "wiki": q => `https://www.google.com/search?q=site:wikipedia.org+${encodeURIComponent(q)}`,
+      "yt": q => `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`,
+      "mdn": q => `https://developer.mozilla.org/en-US/search?q=${encodeURIComponent(q)}`,
+      "maps": q => `https://www.google.com/maps/search/${encodeURIComponent(q)}`
+    };
+
+    document.getElementById("searchForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const raw = (document.getElementById("q").value || "").trim();
+      if (!raw) return;
+
+      const [first, ...rest] = raw.split(/\s+/);
+      const key = first.toLowerCase();
+      const tail = rest.join(" ");
+
+      if (shortcuts[key] && tail) {
+        location.href = shortcuts[key](tail);
+      } else {
+        location.href = `https://www.google.com/search?q=${encodeURIComponent(raw)}`;
+      }
+    });
+
+    // Render link groups
+    const root = document.getElementById("linksRoot");
+    (window.LINK_GROUPS || []).forEach(group => {
+      const card = document.createElement("div");
+      card.className = "card pad";
+      card.innerHTML = `<h2>${group.title}</h2><div class="list"></div>`;
+      const list = card.querySelector(".list");
+      group.links.forEach(l => {
+        const row = document.createElement("a");
+        row.className = "linkRow";
+        row.href = l.url;
+        row.target = "_blank";
+        row.rel = "noopener noreferrer";
+        row.innerHTML = `
+          <div class="left">
+            <div class="label">${l.label}</div>
+            <div class="desc">${l.desc || ""}</div>
+          </div>
+          <span class="badge">↗</span>
+        `;
+        list.appendChild(row);
+      });
+      root.appendChild(card);
+    });
+
+    // Random artwork button (works if gallery dataset loads)
+    document.getElementById("randomArtBtn").addEventListener("click", () => {
+      localStorage.setItem("galleryRandomOnLoad", "1");
+      location.href = "gallery.html";
+    });
+  </script>
+</body>
+</html>

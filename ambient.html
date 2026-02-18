@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ambient</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body style="margin:0;">
+  <div class="ambientWrap" id="ambient">
+    <div class="blob b1" aria-hidden="true"></div>
+    <div class="blob b2" aria-hidden="true"></div>
+    <div class="blob b3" aria-hidden="true"></div>
+    <div class="grain" id="grain" aria-hidden="true"></div>
+
+    <div class="ambientHUD" id="hud">
+      <div class="hudPanel">
+        <div class="hudTitle">Focus</div>
+        <div class="hudRow">
+          <div>
+            <div class="hudBig" id="clock">--:--</div>
+            <div class="hudSmall" id="date">—</div>
+          </div>
+          <div style="flex:1"></div>
+          <button class="btn" id="zenBtn" type="button">Zen</button>
+          <a class="btn ghost" href="index.html">Exit</a>
+        </div>
+      </div>
+
+      <div class="hudPanel">
+        <div class="hudTitle">Timer</div>
+        <div class="hudRow">
+          <div class="hudBig" id="timer">25:00</div>
+          <button class="btn primary" id="startPause" type="button">Start</button>
+          <button class="btn" id="reset" type="button">Reset</button>
+          <select id="mode">
+            <option value="25">25/5</option>
+            <option value="50">50/10</option>
+            <option value="90">90/15</option>
+          </select>
+        </div>
+        <div class="hudRow" style="margin-top:10px;">
+          <input id="intent" type="text" placeholder="One-line intent (stored locally) …" style="flex:1; min-width: 220px;" />
+          <button class="btn" id="toggleGrain" type="button">Grain</button>
+        </div>
+      </div>
+
+      <div class="hudPanel" id="helpPanel">
+        <div class="hudTitle">Keys</div>
+        <div class="hudRow">
+          <span class="kbd">Z</span><span class="hudSmall">Zen</span>
+          <span class="kbd">Space</span><span class="hudSmall">Start/Pause</span>
+          <span class="kbd">R</span><span class="hudSmall">Reset</span>
+          <span class="kbd">G</span><span class="hudSmall">Grain</span>
+          <span class="kbd">H</span><span class="hudSmall">Help</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footerHint" id="hint">Press <span class="kbd">Z</span> for Zen mode</div>
+  </div>
+
+  <script src="assets/js/ambient.js"></script>
+</body>
+</html>
